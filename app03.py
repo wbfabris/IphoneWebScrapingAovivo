@@ -1,5 +1,8 @@
-import requests 
-from bs4 import BeautifulSoup # pip install beautifulsoup4
+import time
+
+import requests
+from bs4 import BeautifulSoup  # pip install beautifulsoup4
+
 
 def fetch_page():
     url = 'https://www.mercadolivre.com.br/apple-iphone-16-pro-1-tb-titnio-preto-distribuidor-autorizado/p/MLB1040287851#polycard_client=search-nordic&wid=MLB5054621110&sid=search&searchVariation=MLB1040287851&position=6&search_layout=stack&type=product&tracking_id=92c2ddf6-f70e-475b-b41e-fe2742459774'
@@ -23,6 +26,8 @@ def parse_page(html):
 
 # Teste das funções
 if __name__ == '__main__':
-    page_content = fetch_page()
-    product_info = parse_page(page_content)
-    print(product_info)
+    while True:
+        page_content = fetch_page()
+        product_info = parse_page(page_content)
+        print(product_info)
+        time.sleep(10)
